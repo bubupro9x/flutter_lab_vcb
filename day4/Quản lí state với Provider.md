@@ -87,7 +87,7 @@ double get fontSize => _fontSize * 30;
 
 Mở file main.dart , xoá tất cả các đoạn code thay bằng đoạn code sau :
 
-```none
+```dart
 import 'package:flutter/material.dart';
 import 'package:states_provider/home.dart';
 import 'package:states_provider/about.dart';
@@ -127,7 +127,7 @@ Trong menu sẽ có 3 item : Home, About, Settings![img](https://images.viblo.as
 
 Mở file drawer_menu.dart và thêm đoạn code sau :
 
-```none
+```dart
 import 'package:flutter/material.dart';
 
 const kTitle = 'Provider';
