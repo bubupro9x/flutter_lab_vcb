@@ -42,9 +42,7 @@ Nội dung của class sẽ bao gồm các biến instance và các phương th�
 
 Class `Person` của chúng ta có 3 biến instance. Đây là cách mà bạn sẽ khai báo biến instance trong ngôn ngữ Dart.
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -63,10 +61,6 @@ Có rất nhiều kiểu của phương thức mà bạn có thể sử dụng t
 Các phương thức instance tập trung vào các đối tượng có thể truy cập các biến instance
 
 Phương thức của chúng ta là walking và talking sẽ chỉ in tên của người đang đi bộ hoặc nói chuyện tương ứng.
-
-DART
-
-copy
 
 ```dart
 class Person{
@@ -91,9 +85,7 @@ Chúng ta tạo ra các đối tượng vì muốn làm việc với chúng theo
 
 Hãy khởi tạo lớp `Person` nhé!
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -119,9 +111,7 @@ Bây giờ chúng ta đã có đối tượng `firstPerson`. Tiếp theo chúng 
 
 Nếu bạn khởi tạo một biến instance ở nơi nó được khai báo, giá trị sẽ được đặt khi instance được tạo. Vì vậy, ngay sau khi `firstPerson` được tạo, giá trị của `age` đã được đặt bằng 0. Hãy đặt giá trị của `name` và `gender` bằng toán tử dấu chấm trong khi cũng chỉ định lại `age` một giá trị mới.
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -146,9 +136,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output:
@@ -159,9 +147,7 @@ female
 
 Khi bạn gọi một phương thức tức là bạn gọi nó trên một đối tượng. Phương thức đó có quyền truy cập vào các phương thức và biến instance của đối tượng đó. Chúng ta hãy gọi phương thức walking và talking và xem điều gì sẽ xảy ra.
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -185,9 +171,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output:
@@ -203,9 +187,7 @@ Trong đoạn code trên, `firstPerson.walking()` lấy giá trị của `Sarah`
 
 Vì các class cung cấp code có thể sử dụng lại, nên có nghĩa là chúng ta có thể tạo nhiều đối tượng bằng cách sử dụng cùng một class. Cùng với `firstPerson`, hãy tạo thêm các đối tượng của class `Person`.
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -244,9 +226,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output:
@@ -277,9 +257,7 @@ Dart cung cấp nhiều loại constructor. Trong series này, chúng ta sẽ t�
 
 Dạng phổ biến nhất của một constructor đó chính là  generative constructor, tạo ra một instance mới của một class.
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -325,9 +303,7 @@ Trên dòng 8 (`this.name = nameC;`), chúng ta đang gán giá trị `nameC` ch
 
 Một generative constructor không yêu cầu bất kỳ nội dung hàm nào. Chúng ta có thể gán `this.name` làm tham số. Điều này giúp viết mã ngắn gọn hơn.
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -350,9 +326,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output:
@@ -369,9 +343,7 @@ Syntax như sau:
 
 ![Named Constructor](https://200lab-blog.imgix.net/2021/07/image-98.png)
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -398,9 +370,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output: 
@@ -425,9 +395,7 @@ Syntax như sau:
 
 Hãy xem một ví dụ rất đơn giản về `get`
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -454,9 +422,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output: 
@@ -473,9 +439,7 @@ Syntax như sau:
 
 ![Setters](https://200lab-blog.imgix.net/2021/07/image-100.png)
 
-DART
 
-copy
 
 ```dart
 class Person{
@@ -505,9 +469,7 @@ int main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output:
@@ -527,9 +489,7 @@ Chúng ta cũng sẽ tạo một hàm setter cho `right`. Các thuộc tính `ri
 
 Tương tự như vậy, `bottom` và `height` phụ thuộc lẫn nhau. Do đó, setter cho `bottom` sửa đổi giá trị của `height` theo giá trị của `bottom`.
 
-DART
 
-copy
 
 ```dart
 class Figure {
@@ -553,9 +513,7 @@ main() {
 }
 ```
 
-TEXT
 
-copy
 
 ```
 Output: 
@@ -591,92 +549,6 @@ Class trước “is a” là subclass và class sau “is a” là superclass
 | Shape                | Circle       |
 | Programming Language | DART         |
 | Vehicle              | Car          |
-
-## 8. Extending a Class
-
-Trong ngôn ngữ Dart, chúng ta sử dụng `extends` để tạo ra một subclass
-
-![Extending a Class](https://200lab-blog.imgix.net/2021/07/image-101.png)
-
-Hãy xem một ví dụ về máy bán hàng tự động. Trong máy bán đồ ăn tự động, chúng ta có một số loại sản phẩm như beverage, chocolate, cookie, ... Điều đáng chú ý ở đây là chúng ta luôn thực hiện mối quan hệ inheritance giữa các lớp khi chúng có thuộc tính chung. Ví dụ, trong trường hợp product, tất cả các product trong máy bán hàng tự động đều có tên, giá cả, ngày hết hạn, v.v. Ngoài ra, mối quan hệ IS A cũng có thể hiện giá trị.
-
-- A beverage is a product.
-- Chocolate is a product.
-- A cookie is a product.
-
-Vì vậy, từ thảo luận ở trên, chúng ta có thể kết luận rằng nếu có một Superclass có tên là product, chúng ta có thể lấy ra các subclass là Beverage, Chocolate, Cookie, v.v. từ superclass.
-
-Hãy xem chúng ta sẽ viết code các class trên trong Dart như thế nào nhé!
-
-DART
-
-copy
-
-```dart
-class Product{
-  String _name;
-  num _price;
-  String _expDate;
-
-  Product(this._name, this._price, this._expDate);
-
-  void printDetails(){
-    print("Name: ${this._name}");
-    print("Price: ${this._price}");
-    print("Expiration Date: ${this._expDate}");
-  }
-}  
-
-class Beverage extends Product{
-  num _liters;
-  String _type;
-
-  Beverage(String name, num price, String expDate, this._liters, this._type) : super(name, price, expDate);
-
-  void beverageDetails(){
-    printDetails();
-    print("Liters: ${this._liters}");
-    print("Type: ${this._type}");
-  }
-}
-
-
-int main() {
-  var drink = Beverage("Minute Maid", 3.50, "01/01/2020", 1.75, "Orange Juice");
-  drink.beverageDetails();
-}
-```
-
-TEXT
-
-copy
-
-```
-Output:
-Name: Minute Maid 
-Price: 3.5 
-Expiration Date: 01/01/2020 
-Liters: 1.75 
-Type: Orange Juice
-```
-
-### Phân tích code
-
-Class `Product` có ba biến instance, `_name`, `_price` và `_expDate`. `Product` có một phương thức generative constructor và một phương thức chỉ đơn giản là in các thuộc tính của `product`.
-
-Ở dòng `class Beverage extends Product{`, chúng ta đang tạo subclass, `Beverage`. để mở rộng class Product ta sử dụng từ khóa `extends`.
-
-Trên dòng 19, chúng ta đang tạo một generative constructor cho class `Beverage`. Để gán ba tham số đầu tiên của constructor `Beverage`, chúng ta đang sử dụng constructor `Product`. `super` được sử dụng bởi một subclass để tham chiếu đến superclass của nó.
-
-`beverageDetails()` đang sử dụng phương thức `Product printDetails()`, để in các giá trị của các thuộc tính `_name`, `_price` và `_expDate`. Nó tự hiển thị các thuộc tính của chính nó.
-
-Trong hàm `main()`, chúng ta đang tạo một instance của lớp `Beverage`.
-
-Bạn có thể nhận thấy rằng chúng ta đã khai báo tất cả các biến instance bắt đầu bằng dấu gạch dưới (`_`). Dấu gạch dưới đảm bảo rằng biến instance là riêng tư. Điều này có nghĩa là một subclass không thể kế thừa biến instance cụ thể đó.
-
-Đây là lý do tại sao chúng ta không thể sử dụng `_name` trực tiếp trong class `Beverage`, nhưng chúng ta có thể sử dụng `printDetails()` một cách dễ dàng.
-
-Tới đây cũng là kết thúc nội dung của bài viết  về Class cũng như là bài viết cuối cùng trong series "Tự học ngôn ngữ Dart" . Hy vọng 10 bài viết vừa qua sẽ giúp bạn bước đầu tiếp cận với ngôn ngữ Dart và có đủ kiến thức nền để tiếp tục những hành trình khác như là hành trình chinh phục Flutter chẳng hạn.
 
 
 
