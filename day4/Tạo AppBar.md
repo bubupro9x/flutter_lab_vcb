@@ -9,7 +9,7 @@ AppBar Constructor
 
 Bạn đang đọc: [Hướng dẫn và ví dụ Flutter AppBar](https://leading10.vn/leading-appbar-flutter-1662328899)
 
-```javascript
+```dart
 AppBar( {Key key,
     Widget leading,
     bool automaticallyImplyLeading: true,
