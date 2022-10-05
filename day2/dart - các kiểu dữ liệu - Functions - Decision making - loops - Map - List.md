@@ -12,8 +12,6 @@ void main(){
 }
 ```
 
-
-
 ### Strings
 1. Khái niệm:
 
