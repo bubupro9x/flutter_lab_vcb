@@ -10,7 +10,7 @@
 
 - **Bước 4** − Flutter cung cấp một tool gọi là **flutter doctor** để kiểm tra tất cả những yêu cầu cần thiết cho môi trường phát triển Flutter. 
 
-  - ```dart
+  - ```bash
     flutter doctor
     ```
 
