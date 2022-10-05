@@ -524,32 +524,7 @@ Output:
 
 Trên dòng 15, giá trị của `left` là 3. Tuy nhiên, khi chúng ta gọi hàm setter `right` trên dòng `fig.right = 12;`, giá trị của `left` được sửa đổi thành -8 và được hiển thị trên dòng `print(fig.left);`.
 
-## 7. Inheritance
-
-Bây giờ bạn đã được làm quen với các đối tượng và class, chúng ta hãy nói về inheritance, một trong những khái niệm cốt lõi của lập trình hướng đối tượng.
-
-Inheritance là một khái niệm mà qua đó bạn có thể tạo một class mới từ class đã tồn tại. Class mới kế thừa các thuộc tính (biến instance) và các phương thức của lớp hiện có. Class kế thừa được gọi là subclass, trong khi lớp đang được kế thừa được gọi là superclass.
-
-> *Mỗi class là một subclass của superclass Object. Nó nằm ở đầu của hệ thống phân cấp lớp và không có superclass của chính nó.*
-
-Có thể bạn sẽ đặt ra câu hỏi là khi nào chúng ta sử dụng inheritance?  Câu trả lời là bất cứ khi nào chúng ta bắt gặp mối quan hệ “IS A“ giữa các đối tượng thì chúng ta có thể sử dụng inheritance.
-
-![Inheritance](https://200lab-blog.imgix.net/2021/07/inher.svg)
-
-Trong hình minh họa trên, chúng ta có thể thấy các đối tượng có mối quan hệ “IS A” giữa chúng:
-
-- Circle is a shape
-- DART is a programming language
-- Car is a vehicle
-
-Class trước “is a” là subclass và class sau “is a” là superclass
-
-| **Superclass**       | **Subclass** |
-| -------------------- | ------------ |
-| Shape                | Circle       |
-| Programming Language | DART         |
-| Vehicle              | Car          |
-
 
 
 ** Tham khảo tại 200lab.io
+
