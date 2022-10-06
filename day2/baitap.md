@@ -57,4 +57,7 @@ Map<String, dynamic> mapB = {
 
 Cho class User (name,age), class Num(list<int> nums).
 Viết hàm để convert mapA ra đối tượng User và mapB ra đối tượng Num.
+  
+  
+  List<String>
 ```

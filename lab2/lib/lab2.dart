@@ -1,8 +1,3 @@
-
-
-
-
-
 import 'package:lab2/dart.dart' as lab2;
 
 Map<String, dynamic> mapA = {
@@ -23,28 +18,45 @@ Map<String, dynamic> mapB = {
 const public = 2;
 
 void main() {
-  // final ResponseWrapper<User> response1 =
-  // ResponseWrapper<User>.fromMap(mapA, (data) => User.fromMap(data));
-  // print(response1.data.name);
-  //
-  // final ResponseWrapper<Number> response2 =
-  //     ResponseWrapper<Number>.fromMap(mapB, (data) {
-  //   return Number.fromMap(data);
-  // });
-}
+  final ResponseWrapper<User> response1 =
+      ResponseWrapper<User>.fromMap(mapA, (data){
+        return  User.fromMap(data);
+  });
+  print(response1.data.name);
+  /// num
+  final ResponseWrapper<Number> response2 =
+      ResponseWrapper<Number>.fromMap(mapB, (data) {
+    return Number.fromMap(data);
+  });
 
+}
 class ResponseWrapper<T> {
-  ResponseWrapper(this.status, this.message, this.data);
+  ResponseWrapper(
+      {required this.status, required this.message, required this.data});
 
   factory ResponseWrapper.fromMap(
-      Map<String, dynamic> map, Function(dynamic) create) {
-    return ResponseWrapper(map['status'], map['message'], create(map['data']));
+      Map<String, dynamic> map, Function(dynamic) execute) {
+    return ResponseWrapper(
+        status: map['status'],
+        message: map['message'],
+        data: execute(
+          map['data'],
+        ));
   }
 
   final int status;
   final String message;
   final T data;
 }
+
+// Map<String, dynamic> mapA = {
+//   'status': 200,
+//   'message': 'success',
+//   'data': {
+//     'name': 'duy',
+//     'age': 26,
+//   }
+// };
 
 class User {
   User(this.name, this.age);
@@ -66,3 +78,5 @@ class Number {
     return Number(m);
   }
 }
+
+

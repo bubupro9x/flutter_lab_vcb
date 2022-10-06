@@ -1,13 +1,18 @@
 import 'dart:async';
 
 void main(List<String> args) async {
-  final nv1 = NhanVien(
-    null,
-    age: 12,
-    soGioLam: 100,
-  );
-  print(nv1.tienThucNhan);
-  print(nv1.toString());
+  exec(finish: (value) {
+    print('finish loop $value');
+  });
+
+  exec(finish: (value) {
+    print('completed $value');
+  });
+}
+
+void exec({required Function(String) finish}) {
+  for (int i = 1; i < 100000; i++) {}
+  finish('hello');
 }
 
 class NhanVien {
