@@ -29,6 +29,15 @@ Lưu ý: Viết hàm in thông tin và hàm tính tiền trong class NhanVien
   
   
 /// bai tap generic
+class User {
+  User(this.name, this.age);
+  final String name;
+  final int age;
+}
+
+class Number {
+  Number(this.data);
+  List<in
 Map<String, dynamic> mapA = {
   'status': 200,
   'message': 'success',
