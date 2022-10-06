@@ -16,7 +16,7 @@ Khởi tạo nhân viên A, 20 tuổi, số giờ làm = 100
 Khởi tạo nhân viên B, 21 tuổi, số giờ làm = 90
 Khởi tạo nhân viên C, 27 tuổi, số giờ làm = 200
 Khởi tạo nhân viên D, 25 tuổi, số giờ làm = 210
-In ra màn hình, thông tin nhân viên kèm theo tiền lương.
+In ra màn hình, thông tin nhân viên kèm theo tiền thực nhận.
 Công thức tính số tiền thực nhận: 
 	Tien luong = số giờ làm * 22000
   Tiền thực nhận = Tiền lương + tiền thưởng
@@ -25,5 +25,25 @@ Công thức tính số tiền thực nhận:
   Tiền thưởng = 0 nếu giờ làm <100
 Lưu ý: Viết hàm in thông tin và hàm tính tiền trong class NhanVien
 /////
-    
+  
+  
+  
+/// bai tap generic
+Map<String, dynamic> mapA = {
+  'status': 200,
+  'message': 'success',
+  'data': {
+    'name': 'duy',
+    'age': 26,
+  }
+};
+
+Map<String, dynamic> mapB = {
+  'status': 200,
+  'message': 'success',
+  'data': [1, 2, 3, 4]
+};
+
+Cho class User (name,age), class Num(list<int> nums).
+Viết hàm để convert mapA ra đối tượng User và mapB ra đối tượng Num.
 ```
