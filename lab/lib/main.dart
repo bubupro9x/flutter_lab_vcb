@@ -37,6 +37,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
+    for (var i = 0; i < 10000000000; i++) {}
+
     list = List<int>.generate(100, (index) => index);
     _scrollController.addListener(() {
       if(_scrollController.offset + 500 >= _scrollController.position.maxScrollExtent){

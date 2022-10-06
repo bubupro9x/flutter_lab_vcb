@@ -1,35 +1,50 @@
+// void main(List<String> args)  {
+//   log('1', success: (value) {
+//     print('value: $value');
+//     print('success');
+//   }, error: () {
+//     print('error');
+//   });
+// }
+//
+// void log(
+//   String str, {
+//   required Function(int) success,
+//   required Function error,
+// }) {
+//   try {
+//     final int temp = int.parse(str);
+//     success(temp);
+//   } catch (_) {
+//     error();
+//   }
+// }
+//
+// void main(List<String> args) async {
+//   print('start');
+//   callAPI().then((value){
+//         print('result: $value');
+//       });
+//   print('end');
+// }
+//
+// Future<bool> callAPI() async {
+//   await Future.delayed(const Duration(seconds: 2));
+//   print('complete');
+//   return true;
+// }
+
 import 'dart:async';
 
-void main(List<String> args) async {
-  exec(finish: (value) {
-    print('finish loop $value');
-  });
+StreamController _controller = StreamController();
 
-  exec(finish: (value) {
-    print('completed $value');
-  });
+void main() {
+  watchStream();
+  _controller.add('hello');
 }
 
-void exec({required Function(String) finish}) {
-  for (int i = 1; i < 100000; i++) {}
-  finish('hello');
-}
-
-class NhanVien {
-  NhanVien(
-    name, {
-    required this.age,
-    required this.soGioLam,
+void watchStream() {
+  _controller.stream.listen((event) {
+    print(event);
   });
-
-  late String name;
-  late int age;
-  late int soGioLam;
-
-  int get tienThucNhan => soGioLam * 22000;
-
-  @override
-  String toString() {
-    return 'name: $name - age $age';
-  }
 }

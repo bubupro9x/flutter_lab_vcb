@@ -19,23 +19,24 @@ const public = 2;
 
 void main() {
   final ResponseWrapper<User> response1 =
-      ResponseWrapper<User>.fromMap(mapA, (data){
-        return  User.fromMap(data);
+      ResponseWrapper<User>.fromMap(mapA, execute: (data) {
+    return User.fromMap(data);
   });
   print(response1.data.name);
+
   /// num
   final ResponseWrapper<Number> response2 =
-      ResponseWrapper<Number>.fromMap(mapB, (data) {
+      ResponseWrapper<Number>.fromMap(mapB, execute: (data) {
     return Number.fromMap(data);
   });
-
 }
+
 class ResponseWrapper<T> {
   ResponseWrapper(
       {required this.status, required this.message, required this.data});
 
-  factory ResponseWrapper.fromMap(
-      Map<String, dynamic> map, Function(dynamic) execute) {
+  factory ResponseWrapper.fromMap(Map<String, dynamic> map,
+      {required Function(dynamic) execute}) {
     return ResponseWrapper(
         status: map['status'],
         message: map['message'],
@@ -78,5 +79,3 @@ class Number {
     return Number(m);
   }
 }
-
-
