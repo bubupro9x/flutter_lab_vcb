@@ -37,7 +37,9 @@ class User {
 
 class Number {
   Number(this.data);
-  List<in
+  List<int> data;
+}
+
 Map<String, dynamic> mapA = {
   'status': 200,
   'message': 'success',
