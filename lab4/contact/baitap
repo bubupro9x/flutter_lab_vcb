@@ -1,0 +1,11 @@
+
+
+Dựa vào ứng dụng Contact đã làm trước đó. Hãy phát triển thêm các tính năng sau đây:
+
+- Chức năng add danh bạ: 
+  - Push sang một màn hình khác chưa các text field: Name, Phone. Sau khi người dùng nhập xong và bấm vào button Add thì back lại màn hình danh sách contact và add data mới add vào. 
+    - Keyword: Return data from a screen.
+  - Xóa tất cả fake data và sử dụng data đã add trước đó.
+  - Sử dụng lib shared_preferences để lưu toàn bộ data Contact xuống dưới disk, và lần sau vào app load data lên để show ra màn hình.
+
+Tham khảo ứng dụng danh bạ thông thường trong điện thoại.
