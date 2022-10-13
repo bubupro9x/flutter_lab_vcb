@@ -1,8 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-import 'contact_controller.dart';
+import 'contact_view_model.dart';
 
 class ContactExample extends StatefulWidget {
   const ContactExample({Key? key}) : super(key: key);
@@ -13,8 +14,6 @@ class ContactExample extends StatefulWidget {
 
 class _ContactExampleState extends State<ContactExample> {
   final _debouncer = Debouncer(milliseconds: 500);
-
-  final ContactController _controller = ContactController();
 
   Widget Header() {
     print('Header is rebuilt');
@@ -27,6 +26,12 @@ class _ContactExampleState extends State<ContactExample> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.pushNamed(context, '/addContact');
+        },
+        child: const Icon(Icons.add),
+      ),
       appBar: AppBar(),
       body: Column(
         children: [
@@ -34,24 +39,25 @@ class _ContactExampleState extends State<ContactExample> {
           TextField(
             onChanged: (value) {
               _debouncer.run(() {
-                _controller.onUserFilterList(value);
+                Provider.of<ContactViewModel>(context, listen: false)
+                    .onUserFilterList(value);
               });
               setState(() {});
             },
           ),
           Expanded(
-            child: StreamBuilder<List<Contact>>(
-                stream: _controller.stream.stream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return ListContacts(
-                      tempContact: snapshot.data!,
-                    );
-                  }
+            child: Consumer<ContactViewModel>(
+              builder: (__, controller, _) {
+                if(controller.listFilter.contacts.isEmpty) {
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: Text('Empty'),
                   );
-                }),
+                }
+                return ListContacts(
+                  tempContact: controller.listFilter.contacts,
+                );
+              },
+            ),
           ),
         ],
       ),
@@ -98,3 +104,24 @@ class Debouncer {
     _timer = Timer(Duration(milliseconds: milliseconds), action);
   }
 }
+
+/*
+
+
+Dựa vào ứng dụng Contact đã làm trước đó.
+Hãy phát triển thêm các tính năng sau đây:
+
+- Chức năng add danh bạ:
+  - Push sang một màn hình khác chưa các text field:
+  Name, Phone. Sau khi người dùng nhập xong và
+  bấm vào button Add thì back lại màn hình danh sách contact
+  và add data mới add vào.
+    - Keyword: Return data from a screen.
+    - or can pass contact controller to the add contact screen
+  - Xóa tất cả fake data và sử dụng data đã add trước đó.
+  - Sử dụng lib shared_preferences để lưu toàn bộ data Contact
+  xuống dưới disk, và lần sau vào app load data
+  lên để show ra màn hình.
+
+Tham khảo ứng dụng danh bạ thông thường trong điện thoại.
+ */
