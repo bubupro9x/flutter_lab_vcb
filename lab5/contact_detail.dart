@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab3/contact_controller.dart';
+import 'package:lab3/contact_view_model.dart';
 
 class ContactDetail extends StatelessWidget {
   const ContactDetail({Key? key, required this.contact}) : super(key: key);

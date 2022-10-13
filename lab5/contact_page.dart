@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'contact_controller.dart';
+import 'contact_view_model.dart';
 
 class ContactExample extends StatefulWidget {
   const ContactExample({Key? key}) : super(key: key);
@@ -39,27 +39,25 @@ class _ContactExampleState extends State<ContactExample> {
           TextField(
             onChanged: (value) {
               _debouncer.run(() {
-                Provider.of<ContactController>(context, listen: false)
+                Provider.of<ContactViewModel>(context, listen: false)
                     .onUserFilterList(value);
               });
               setState(() {});
             },
           ),
           Expanded(
-            child: StreamBuilder<List<Contact>>(
-                stream: Provider.of<ContactController>(context, listen: false)
-                    .stream
-                    .stream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasData) {
-                    return ListContacts(
-                      tempContact: snapshot.data!,
-                    );
-                  }
+            child: Consumer<ContactViewModel>(
+              builder: (__, controller, _) {
+                if (controller.listFilter == null) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                }),
+                }
+                return ListContacts(
+                  tempContact: controller.listFilter!,
+                );
+              },
+            ),
           ),
         ],
       ),

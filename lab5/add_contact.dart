@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lab3/contact_controller.dart';
+import 'package:lab3/contact_view_model.dart';
 import 'package:provider/provider.dart';
 
 class AddContact extends StatelessWidget {
@@ -35,7 +35,7 @@ class AddContact extends StatelessWidget {
                     name: _nameController.text,
                     phone: _phoneController.text,
                   );
-                  Provider.of<ContactController>(context,listen: false)
+                  Provider.of<ContactViewModel>(context,listen: false)
                       .addContact(name: obj.name, phone: obj.phone);
                   Navigator.pop(context);
                 },
