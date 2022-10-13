@@ -1,62 +1,86 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ContactViewModel extends ChangeNotifier {
-  List<Contact>? _listFilter;
+  final ListContact _listFilter = ListContact(contacts: []);
 
-  List<Contact>? get listFilter => _listFilter;
-  List<Contact>? _orginalList;
+  ListContact get listFilter => _listFilter;
+  ListContact _orginalList = ListContact(contacts: []);
 
-  List<Contact>? get orginalList => _orginalList;
+  ListContact get orginalList => _orginalList;
 
   ContactViewModel() {
     getAllContact();
   }
 
   void getAllContact() async {
-    await Future.delayed(const Duration(milliseconds: 2000));
-    _orginalList = _listContact;
-    if (_orginalList != null) {
-      _listFilter = List.from(_orginalList!);
-      notifyListeners();
+    final prefs = await SharedPreferences.getInstance();
+    final result = prefs.getString('contacts');
+    if (result != null) {
+      _orginalList = listContactFromJson(result);
+      _listFilter.contacts = List.from(_orginalList.contacts);
     }
+    notifyListeners();
   }
 
   void onUserFilterList(String value) {
-    if (_orginalList != null) {
-      _listFilter = _orginalList!
-          .where((element) =>
-              element.name.toUpperCase().contains(value.toUpperCase()))
-          .toList();
+    _listFilter.contacts = _orginalList.contacts
+        .where((element) =>
+            element.name.toUpperCase().contains(value.toUpperCase()))
+        .toList();
 
-      notifyListeners();
-    }
+    notifyListeners();
   }
 
-  void addContact({required String name, required String phone}) {
-    _orginalList?.add(Contact(name: name, phone: phone));
-    _listFilter = List.from(_orginalList!);
+  void addContact({required String name, required String phone}) async {
+    _orginalList.contacts.add(Contact(name: name, phone: phone));
+    _listFilter.contacts = List.from(_orginalList.contacts);
+    final prefs = await SharedPreferences.getInstance();
+    prefs.setString('contacts', listContactToJson(_orginalList));
     notifyListeners();
   }
 }
 
-class Contact {
-  final String name;
-  final String phone;
+ListContact listContactFromJson(String str) =>
+    ListContact.fromJson(json.decode(str));
 
-  Contact({required this.name, required this.phone});
+String listContactToJson(ListContact data) => json.encode(data.toJson());
+
+class ListContact {
+  ListContact({
+    required this.contacts,
+  });
+
+  List<Contact> contacts;
+
+  factory ListContact.fromJson(Map<String, dynamic> json) => ListContact(
+        contacts: List<Contact>.from(
+            json["contacts"].map((x) => Contact.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "contacts": List<dynamic>.from(contacts.map((x) => x.toJson())),
+      };
 }
 
-List<Contact> get _listContact => [
-      Contact(name: 'Mai Van A', phone: '0999123121'),
-      Contact(name: 'Van Van B', phone: '0999123122'),
-      Contact(name: 'Hoang Van C', phone: '0999123123'),
-      Contact(name: 'Huynh Van D', phone: '0999123124'),
-      Contact(name: 'Nguyen Van E', phone: '0999123125'),
-      Contact(name: 'Nguyen Van F', phone: '0999123126'),
-      Contact(name: 'Nguyen Van G', phone: '0999123127'),
-      Contact(name: 'Nguyen Van H', phone: '0999123128'),
-      Contact(name: 'Nguyen Van I', phone: '0999123129'),
-      Contact(name: 'Nguyen Van J', phone: '0999123110'),
-      Contact(name: 'Nguyen Van K', phone: '0999123111'),
-      Contact(name: 'Nguyen Van L', phone: '09991231123'),
-    ];
+class Contact {
+  Contact({
+    required this.name,
+    required this.phone,
+  });
+
+  String name;
+  String phone;
+
+  factory Contact.fromJson(Map<String, dynamic> json) => Contact(
+        name: json["name"],
+        phone: json["phone"],
+      );
+
+  Map<String, dynamic> toJson() => {
+        "name": name,
+        "phone": phone,
+      };
+}

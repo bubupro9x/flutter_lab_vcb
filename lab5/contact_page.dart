@@ -48,13 +48,13 @@ class _ContactExampleState extends State<ContactExample> {
           Expanded(
             child: Consumer<ContactViewModel>(
               builder: (__, controller, _) {
-                if (controller.listFilter == null) {
+                if(controller.listFilter.contacts.isEmpty) {
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: Text('Empty'),
                   );
                 }
                 return ListContacts(
-                  tempContact: controller.listFilter!,
+                  tempContact: controller.listFilter.contacts,
                 );
               },
             ),
