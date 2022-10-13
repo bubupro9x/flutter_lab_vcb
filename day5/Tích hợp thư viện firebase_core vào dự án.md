@@ -5,7 +5,7 @@
 ## Tạo project Firebase:
 
 
-
+Link vào project firebase: https://console.firebase.google.com/
 Điều này là dĩ nhiên rồi không có nó làm sao mà liên kết được =)). Click vào **New project**.
 
 ![img](https://images.viblo.asia/5d01a3d3-f7d0-4b14-b8c2-972ee08babdf.png)![img](https://images.viblo.asia/5d01a3d3-f7d0-4b14-b8c2-972ee08babdf.png)
