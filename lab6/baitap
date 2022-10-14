@@ -1,0 +1,15 @@
+# Bài tập
+
+Cho API: https://picsum.photos/v2/list
+
+Tạo một ứng dụng để hiển thị danh sách các hình ảnh trả về dựa trên API đó.
+
+Yêu cầu sử dụng: Dio, ChangeNotifierProvider State management (Tương tự bài tập Contact)
+
+Gợi ý: 
+
+- Sau khi mở app, call API và covert response thành ImagesModel(Sử dụng app.quickType).
+- Thử hit API ở trên lên browser để xem response trả về là gì, sau đó đẩy vào app.quicktype để convert ra model.
+- Notify ra ngoài UI để UI rebuild dựa trên danh sách Images đã get về.
+- Sử dụng Consumer widget và Listview.builder widget.
+
