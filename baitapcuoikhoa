@@ -1,0 +1,29 @@
+# Bài tập
+
+Cho API: https://random-data-api.com/api/v2/users?size=100
+
+Tạo một ứng dụng để hiển thị danh sách các thông tin user trả về dựa trên API đó. Khi tap vào user bất kì, sẽ navigate đến màn hình detail và show các thông tin của user đó.
+
+Yêu cầu sử dụng: Dio, ChangeNotifierProvider State management (Tương tự bài tập Contact)
+
+Gợi ý: 
+
+- Sau khi mở app, call API và covert response thành UsersModel(Sử dụng app.quickType).
+- Thử hit API ở trên lên browser để xem response trả về là gì, sau đó đẩy vào app.quicktype để convert ra model.
+- Notify ra ngoài UI để UI rebuild dựa trên danh sách users đã get về.
+- Sử dụng Consumer widget và Listview.builder widget.
+
+* Lưu ý: Mọi người nên tự code lại để quen tay
+
+
+
+Tham khảo UI Màn hình list Users
+![20 Best List UI Design Examples, Principles & Resources in 2022](https://d3h2k7ug3o5pb3.cloudfront.net/image/2020-09-23/021c0890-fd64-11ea-9a72-05ee39850a5d.jpg)
+
+
+
+Thảm khảo UI màn hình detail user
+![User Profile UI/UX Mobile App by uxmalaya on Dribbble](https://cdn.dribbble.com/users/3862432/screenshots/10847638/media/2528fc482feafb20763e50dcb946aadf.jpg?compress=1&resize=400x300&vertical=top)
+
+
+
