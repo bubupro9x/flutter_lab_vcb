@@ -382,14 +382,29 @@ mapController.animateCamera(
 
 Tương tự như việc di chuyển camera trên Map, chúng ta sẽ sử dụng GoogleMapController để thêm điểm đánh dấu (markers) vào Map.![img](https://images.viblo.asia/0eba3296-08f2-4514-b891-587ef6f750ee.png)
 
-Đơn giản sử dụng **mapController.addMarker()** cho tới một vị trí **LatLng**
+Đơn giản sử dụng thuộc tính **markers** và truyền một set Markers vào cho tới một vị trí **LatLng**
 
 ```dart
-mapController.addMarker(
-  MarkerOptions(
-    position: LatLng(37.4219999, -122.0862462),
-  ),
-);
+GoogleMap(
+                    myLocationButtonEnabled: false,
+                    mapType: MapType.normal,
+                    markers: {
+                      Marker(
+                        markerId: const MarkerId('place_name'),
+                        position: LatLng(user.address.coordinates.lat,
+                            user.address.coordinates.lng),
+                      )
+                    },
+                    initialCameraPosition: CameraPosition(
+                      target: LatLng(user.address.coordinates.lat,
+                          user.address.coordinates.lng),
+                      zoom: 13,
+                    ),
+                    onMapCreated: (GoogleMapController controller) {
+                      _controller.complete(controller);
+                      controller.
+                    },
+                  ),
 ```
 
 
