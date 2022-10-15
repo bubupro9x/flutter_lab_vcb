@@ -4,7 +4,7 @@
 
 ### 1. Setup the config file 
 
-Thêm cấu hình `Flutter auncher Icons` vào `pubspec.yaml` của bạn hoặc tạo tệp cấu hình mới có tên là` flut_launcher_icons.yaml`. Một ví dụ đã được biểu diễn ở dưới. Các ví dụ phức tạp hơn [có thể tìm thấy trong các dự án mẫu](https://github.com/fluttercommunity/flutter_launcher_icons/tree/master/example).
+Thêm cấu hình `Flutter auncher Icons` vào `pubspec.yaml` của bạn hoặc tạo tệp cấu hình mới có tên là` flutter_launcher_icons.yaml`. Một ví dụ đã được biểu diễn ở dưới. Các ví dụ phức tạp hơn [có thể tìm thấy trong các dự án mẫu](https://github.com/fluttercommunity/flutter_launcher_icons/tree/master/example).
 
 ```yaml
 dev_dependencies:
